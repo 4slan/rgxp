@@ -21,7 +21,6 @@
 - **Back end:** NodeJS, Express, Knex.
  - ECMAScript 6 (клиент и сервер).
  - Webpack
- - Stylus
 
 ## Как добавить свои регулярные выражения?
 
