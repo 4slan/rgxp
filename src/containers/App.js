@@ -43,9 +43,7 @@ const handlers = withHandlers({
     setLoading(true);
     axios
       .get(
-        window.location.host !== 'location:3000'
-          ? 'http://rgxp.ru/patterns.json'
-          : 'patterns.json',
+        'patterns.json',
       )
       .then(({ data }) => {
         setPatterns(data);
