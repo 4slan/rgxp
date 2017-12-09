@@ -31,9 +31,6 @@ bower_components
 
 # other
 yarn.lock
-dist/*
-!dist/bundle.js
-!dist/app.css
 package-lock.json
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
