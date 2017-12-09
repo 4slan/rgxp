@@ -145,7 +145,7 @@
       "ru": "24 или 32-битные цвета. Пример: #FF006C / 0xF0F73611 / 99AAB7FF"
     },
     "pattern": "(?:#|0x)?(?:[0-9A-Fa-f]{2}){3,4}",
-    "placeholder": "#ffffff",
+    "placeholder": "rgb(255, 255, 255)",
     "tags": "color,hex,rgb,hex color,other",
     "nickname": "@limitedeternity"
   },
@@ -180,7 +180,7 @@
   {
     "title": {
       "en": "SRC of image tag",
-      "ru": "&lt;img src=&quot;&quot;&gt; тэг"
+      "ru": "<img src=\"cat.js\"> тэг"
     },
     "pattern": "^<\\s*img[^>]+src\\s*=\\s*([\"'])(.*?)\\1[^>]*>$",
     "placeholder": "<img src=\"cat.jpg\">",
@@ -336,7 +336,7 @@
       "en": "Dollar amounts",
       "ru": "Долларовые суммы"
     },
-    "pattern": "\\$[0-9]+.[0-9][0-9]",
+    "pattern": "\\$[0-9]+(.[0-9][0-9])?",
     "placeholder": "$100 or $99.99",
     "description": {
       "en": "Dollar amounts, specified with a leading $ symbol.",
