@@ -59,7 +59,7 @@ const handlers = withHandlers({
 const replaceProps = mapProps(props => ({
   ...props,
   dict: language[props.language],
-  patterns: props.patterns
+  patterns: props.patterns.length
     ? props.patterns.filter(item => {
         const searchQuery =
           props.location.search.indexOf('search=') >= 0
