@@ -17,7 +17,7 @@
 
 ## Что использовалось при разработке?
 
-- **Front end:** ReactJS, Redux, Recompose.
+- **Front end:** ReactJS, Redux, Recompose, React Router, Stylus.
 - **Back end:** NodeJS, Express, Knex.
  - ECMAScript 6 (клиент и сервер).
  - Webpack
