@@ -336,11 +336,7 @@
       "en": "Dollar amounts",
       "ru": "Долларовые суммы"
     },
-<<<<<<< HEAD
     "pattern": "\\$[0-9]+.[0-9][0-9]",
-=======
-    "pattern": "\\$[0-9]*.[0-9][0-9]",
->>>>>>> refactoring
     "placeholder": "$100 or $99.99",
     "description": {
       "en": "Dollar amounts, specified with a leading $ symbol.",
