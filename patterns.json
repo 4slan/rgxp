@@ -364,11 +364,11 @@
       "en": "Domain name",
       "ru": "Имя домена"
     },
-    "pattern": "/(?!w{1,}\\.)(\\w+\\.?)([a-zA-Z]+)(\\.\\w+)/g",
+    "pattern": "/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,8}$/g",
     "placeholder": "site.com",
     "description": {
       "en": "Matches domain name",
-      "ru": "Соответствует доменному имени"
+      "ru": "Соответствует доменному имени (только латиница)"
     },
     "tags": "domain,name,site,www,strings",
     "nickname": "@Archakov06"
