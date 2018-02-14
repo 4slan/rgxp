@@ -364,8 +364,8 @@
       "en": "Domain name",
       "ru": "Имя домена"
     },
-   "pattern": "/(?!w{1,}\\.)(\\w+\\.?)([a-zA-Z]+)(\\.\\w+)/g",
-    "placeholder": "site.com",
+    "pattern": "/(?!w{1,}\\.)(\\w+\\.?)([a-zA-Z]+)(\\.\\w+)/g",
+    "placeholder": "domain.com",
     "description": {
       "en": "Matches domain name",
       "ru": "Соответствует доменному имени (только латиница)"
