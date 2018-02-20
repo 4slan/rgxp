@@ -3,7 +3,7 @@ import {
   withHandlers,
   withState,
   lifecycle,
-  mapProps,
+  mapProps
 } from 'recompose';
 
 import { connect } from 'react-redux';
@@ -16,11 +16,11 @@ import language from '../language';
 import App from '../components/App';
 
 const mapStateToProps = ({ currentStore }) => ({
-  ...currentStore,
+  ...currentStore
 });
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(appActions, dispatch),
+  ...bindActionCreators(appActions, dispatch)
 });
 
 const componentMethods = lifecycle({
@@ -30,21 +30,19 @@ const componentMethods = lifecycle({
   componentWillMount() {
     const { getPatterns } = this.props;
     getPatterns();
-  },
+  }
 });
 
 const state = withState('isLoaded', 'setLoading', true);
 
 const handlers = withHandlers({
   getPatterns: ({ setTag, setPatterns, searchPatterns, setLoading }) => (
-    tag = '',
+    tag = ''
   ) => {
     setTag(tag);
     setLoading(true);
     axios
-      .get(
-        'patterns.json',
-      )
+      .get('patterns.json')
       .then(({ data }) => {
         setPatterns(data);
         setLoading(false);
@@ -53,31 +51,33 @@ const handlers = withHandlers({
   },
   searchPatterns: ({ searchPatterns }) => val => {
     searchPatterns(val);
-  },
+  }
 });
 
 const replaceProps = mapProps(props => ({
   ...props,
   dict: language[props.language],
   patterns: props.patterns.length
-    ? props.patterns.filter(item => {
-        const searchQuery =
-          props.location.search.indexOf('search=') >= 0
-            ? props.location.search.split('search=')[1]
-            : props.searchQuery;
-        return (
-          (item.title.hasOwnProperty(props.language) &&
-            item.title[props.language].toLowerCase().indexOf(searchQuery) >=
-              0) ||
-          item.tags.toLowerCase().indexOf(searchQuery) >= 0 ||
-          (item.hasOwnProperty('description') &&
-            item.description.hasOwnProperty(props.language) &&
-            item.description[props.language]
-              .toLowerCase()
-              .indexOf(searchQuery) >= 0)
-        );
-      })
-    : [],
+    ? props.patterns
+        .filter(item => {
+          const searchQuery =
+            props.location.search.indexOf('search=') >= 0
+              ? props.location.search.split('search=')[1]
+              : props.searchQuery;
+          return (
+            (item.title.hasOwnProperty(props.language) &&
+              item.title[props.language].toLowerCase().indexOf(searchQuery) >=
+                0) ||
+            item.tags.toLowerCase().indexOf(searchQuery) >= 0 ||
+            (item.hasOwnProperty('description') &&
+              item.description.hasOwnProperty(props.language) &&
+              item.description[props.language]
+                .toLowerCase()
+                .indexOf(searchQuery) >= 0)
+          );
+        })
+        .sort((a, b) => b.priority - a.priority)
+    : []
 }));
 
 export default compose(
@@ -85,5 +85,5 @@ export default compose(
   handlers,
   state,
   componentMethods,
-  replaceProps,
+  replaceProps
 )(App);
