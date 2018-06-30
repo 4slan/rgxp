@@ -31,19 +31,18 @@ button, a, input, textarea
 	font-size 14px
 
 .button
-	padding 10px 20px
+	padding 13px 30px
 	border-radius 30px
 	border 0
 	background-color #fff
-	border 1px solid transparent
 	cursor pointer
 	letter-spacing 0.2px
+	text-align center
 
 	&--green
 		color white
 		min-width 120px
 		background-color #87cc76
-		border-color #78b768
 
 		&:hover
 			background lighten(#87cc76, 5%)
@@ -55,13 +54,11 @@ button, a, input, textarea
 
 		&:hover
 			background-color lighten(#e5e5e5, 80%)
-			border-color lighten(#e5e5e5, 30%)
 
 	&--purple
 		min-width 150px
 		color #fff
 		background-color #7493FF
-		border-color darken(#7493FF, 10%)
 
 		&:hover
 			background-color lighten(#7493FF, 5%)
@@ -169,6 +166,7 @@ body
 	display flex
 	margin-top ($blockMarginBottom / 1.2)
 	margin-bottom ($blockMarginBottom / 1.2)
+	align-items center
 	justify-content space-between
 
 	&__language
@@ -210,6 +208,23 @@ body
 			a:hover
 				cursor pointer
 				color darken(#9F9F9F, 40%)
+
+.add-form
+	h2
+		font-weight 400
+		letter-spacing 0.3px
+		margin-bottom 20px
+
+	textarea
+		min-height 100px
+
+	&__field
+		display block
+		width 100%
+		margin-bottom 20px
+		padding 20px
+		font-size 16px
+		min-height 45px
 
 .container
 	max-width $containerWidth

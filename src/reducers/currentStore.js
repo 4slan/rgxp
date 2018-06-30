@@ -1,41 +1,43 @@
 const initialState = {
-  patterns: [],
-  searchQuery: '',
-  tag: '',
-  isLoading: true,
-  language:
-    (window.navigator.userLanguage || window.navigator.language) === 'ru'
-      ? 'ru'
-      : 'en',
+	patterns: [],
+	searchQuery: '',
+	tag: '',
+	isLoading: true,
+	isReady: false,
+	language: (window.navigator.userLanguage || window.navigator.language).split(
+		'-'
+	)[0]
 };
 
-export default function currentStore(state = initialState, action) {
-  switch (action.type) {
-    case 'SET_PATTERNS':
-      return {
-        ...state,
-        patterns: action.payload,
-      };
-    case 'SET_TAG':
-      return {
-        ...state,
-        tag: action.payload,
-      };
-    case 'SEARCH_PATTERNS': {
-      const val = action.payload ? action.payload.toLowerCase() : '';
-      return {
-        ...state,
-        searchQuery: val,
-      };
-    }
-    case 'SET_LOADING': {
-      const isLoading = action.payload;
-      return {
-        ...state,
-        isLoading,
-      };
-    }
-    default:
-      return state;
-  }
-}
+export default (state = initialState, action) => {
+	switch (action.type) {
+		case 'SET_PATTERNS':
+			return {
+				...state,
+				patterns: action.payload,
+				isLoading: false,
+				isReady: true
+			};
+		case 'SET_TAG':
+			return {
+				...state,
+				tag: action.payload
+			};
+		case 'SEARCH_PATTERNS': {
+			const searchQuery = action.payload ? action.payload.toLowerCase() : '';
+			return {
+				...state,
+				searchQuery
+			};
+		}
+		case 'SET_LOADING': {
+			return {
+				...state,
+				isLoading: action.payload,
+				isReady: false
+			};
+		}
+		default:
+			return state;
+	}
+};
